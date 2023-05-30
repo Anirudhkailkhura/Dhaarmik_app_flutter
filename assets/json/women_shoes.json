@@ -1,0 +1,262 @@
+[
+  {
+    "id": "10",
+    "name": "Crystal Elastic",
+    "category": "Crystal bracelet",
+    "oldPrice": "99.00",
+    "imageUrl": [
+      "https://m.media-amazon.com/images/I/41Lzb7ydj8L._UL1200_.jpg",
+      "https://m.media-amazon.com/images/I/5144ITYYzJL._UL1080_.jpg",
+      "https://m.media-amazon.com/images/I/419G4S-5RPL.jpg",
+      "https://m.media-amazon.com/images/I/4156NgF2btL.jpg"
+    ],
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "price": "367.00",
+    "description": "Product Dimensions:-Product Diameter:-6 Cm,Product Weight:-20-25 Gm Approximately.Stretch Bracelet with 23 Beads. It heals love & emotional wounds, thus, making one emotionally & mentally stable.",
+    "title": "Dhaarmik Crystal Elastic 8mm Stretch Crystal Yoga,Meditation Bracelet "
+  },
+  {
+    "id": "11",
+    "name": "Black Tourmaline",
+    "category": "Crystal bracelet",
+    "oldPrice": "999.00",
+    "imageUrl": [
+      "https://m.media-amazon.com/images/I/61zx+OM6seL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71iQQxAFO8L._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71reOkDrs1L._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/716iV6sslsL._SX425_.jpg"
+    ],
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "price": "619.00",
+    "description": "People use it to prevents nightmares, phobias, and unnecessary fears, thus, helps you have a sweet and relaxing sleep.It deals with changing moods and helps you remain in a healthy/positive mood all along. Alongside, it prevents mood swings, anxiety, depression, and sleep disorders.",
+    "title": "Black Tourmaline Crystal Bracelet Natural Gemstone"
+  },
+  {
+    "id": "12",
+    "name": "Carnelian Agate",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://m.media-amazon.com/images/I/61UlO+edBZL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71VeRngLZ6L._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71BlixiIEAL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/81LapTRjmeL._SY550_.jpg"
+    ],
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "oldPrice": "1349.00",
+    "price": "544.00",
+    "description": "Carnelian Stone Of Action - Energizer, Vitality/Passion. Sexuality - Sacral Chakra StoneIt inspires confidence and empowerment.It inspires creativity.Keep it in your workspace.",
+    "title": "Dhaarmik Carnelian Agate Unisex Adult Natural Crystal Stone"
+  },
+
+
+
+
+  {
+    "id": "13",
+    "name": "Dhaarmik Hematite",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://m.media-amazon.com/images/I/518RU1ZnQUL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/51qeO9Pb1OL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71o0nDK2CBL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/615OIim23JL._SX425_.jpg"
+    ],
+    "oldPrice": "999.00",
+    "price": "469.00",
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "description": "Hematite boosts self-esteem, enhances willpower, and removes self-limitationsIt absorbs negative energy and creates a strong, stable connection to the earth.This stone is useful for overcoming compulsions, addictions, and overindulgence.",
+    "title": "Dhaarmik Hematite Stylish Bracelet,"
+  },
+
+
+
+  {
+    "id": "14",
+    "name": "Aura Quartz",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://m.media-amazon.com/images/I/71Pm7K6mK6L._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71M8EA7ChzL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/61IztnC+G6L._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71e+w06HB0L._SX425_.jpg"
+    ],
+    "oldPrice": "849.00",
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "price": "460.00",
+    "description": "Enhances spiritual awareness||Promotes emotional healing||Boosts energy levels||Increases intuitionPromotes creativity",
+    "title": "Dhaarmik Aura Quartz Bracelet"
+  },
+
+
+
+
+
+  {
+    "id": "15",
+    "name": "Quartz Crystal",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://m.media-amazon.com/images/I/61FyZi8VPqL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71d4o0Jpq7L._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/71lBiy1daUL._SX425_.jpg",
+      "https://m.media-amazon.com/images/I/710SZkUaXTL._SX425_.jpg"
+    ],
+    "oldPrice": "599.00",
+    "price": "449.00",
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "description": "100% Authentic, Original and Natural Healing Stone / Crystal - small holes, crack marks on the surface or inside the stones are often visible. Smoky Quartz The Grounding Stone - Protection - Energizer - All Chakra StoneIt can be used as a tool to help you let go of negativity and challenging circumstances",
+    "title": "Smoky Quartz Crystal Bracelet - A+ Quality - Original Healing Gemstone Bracelet "
+  },
+
+
+
+
+
+
+  {
+
+
+
+    "id": "16",
+    "name": " Mystic Aura Quartz ",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://m.media-amazon.com/images/I/51SC-wQiZBL._UY500_.jpg",
+      "https://m.media-amazon.com/images/I/61fwIWH-0OL._UY395_.jpg",
+      "https://m.media-amazon.com/images/I/61akdPerRVL._UY395_.jpg",
+      "https://m.media-amazon.com/images/I/81PjKbg4udL._UY395_.jpg"
+    ],
+    "oldPrice": "2799.00",
+    "price": "1196.00",
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "description": "Enhances spiritual awareness  Promotes emotional healing  Boosts energy levels  Increases intuition  Promotes creativity",
+    "title": "Dhaarmik Mystic Aura Quartz Crystal Firing Faceted Bracelet"
+  },
+
+
+
+
+
+  {
+    "id": "17",
+    "name": "UltraBoost Shoes",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://d326fntlu7tb1e.cloudfront.net/uploads/d60aca33-909b-4df7-9ad7-b75039438e29-GX1398_a1.webp",
+      "https://d326fntlu7tb1e.cloudfront.net/uploads/d60aca33-909b-4df7-9ad7-b75039438e29-GX1398_a1.webp"
+    ],
+    "oldPrice": "1049.00",
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "price": "890.00",
+    "description": "Put some pep in your step with the adidas Originals NMD R1.V2. The modern silhouette teams up with retro details to create a truly stand-out look. Your new favorite sneakers are right here. Regular fit shows off a streamlined silhouette Classic lace closure lets you adjust for your ideal fit.Textile upper provides a snug comfortable feel. Responsive Boost midsole includes plugs for throwback style",
+    "title": "Adidas Running Shoes With Cooling Ventilations"
+  },
+  {
+    "id": "18",
+    "name": "UltraBoost Shoes",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://d326fntlu7tb1e.cloudfront.net/uploads/51ee25c7-46b6-4fd4-bfe0-7dca9a9fd8a9-GX6326_a1.webp",
+      "https://d326fntlu7tb1e.cloudfront.net/uploads/51ee25c7-46b6-4fd4-bfe0-7dca9a9fd8a9-GX6326_a1.webp"
+    ],
+    "oldPrice": "UltraBoost Shoes",
+    "price": "999.00",
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "description": "Put some pep in your step with the adidas Originals NMD R1.V2. The modern silhouette teams up with retro details to create a truly stand-out look. Your new favorite sneakers are right here. Regular fit shows off a streamlined silhouette Classic lace closure lets you adjust for your ideal fit.Textile upper provides a snug comfortable feel. Responsive Boost midsole includes plugs for throwback style",
+    "title": "Adidas Running Shoes With Cooling Ventilations"
+  },
+  {
+    "id": "19",
+    "name": "UltraBoost Shoes",
+    "category": "Crystal bracelet",
+    "imageUrl": [
+      "https://d326fntlu7tb1e.cloudfront.net/uploads/51ee25c7-46b6-4fd4-bfe0-7dca9a9fd8a9-GX6326_a1.webp",
+      "https://d326fntlu7tb1e.cloudfront.net/uploads/51ee25c7-46b6-4fd4-bfe0-7dca9a9fd8a9-GX6326_a1.webp"
+    ],
+    "sizes": [
+      { "size": "6.0", "isSelected": false },
+      { "size": "6.5", "isSelected": false },
+      { "size": "7.0", "isSelected": false },
+      { "size": "7.5", "isSelected": false },
+      { "size": "8.0", "isSelected": false },
+      { "size": "8.5", "isSelected": false },
+      { "size": "9.0", "isSelected": false }
+    ],
+    "oldPrice": "1499.00",
+    "price": "719.00",
+    "description": "Put some pep in your step with the adidas Originals NMD R1.V2. The modern silhouette teams up with retro details to create a truly stand-out look. Your new favorite sneakers are right here. Regular fit shows off a streamlined silhouette Classic lace closure lets you adjust for your ideal fit.Textile upper provides a snug comfortable feel. Responsive Boost midsole includes plugs for throwback style",
+    "title": "Adidas Running Shoes With Cooling Ventilations"
+  }
+]
