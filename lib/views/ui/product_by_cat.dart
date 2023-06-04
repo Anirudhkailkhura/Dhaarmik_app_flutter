@@ -116,13 +116,13 @@ class _ProductByCatState extends State<ProductByCat>
                     unselectedLabelColor: Colors.grey.withOpacity(0.3),
                     tabs: const [
                       Tab(
-                        text: "Men Shoes",
+                        text: "Stone Bracelets",
                       ),
                       Tab(
-                        text: "Women Shoes",
+                        text: "Crystal Bracelets",
                       ),
                       Tab(
-                        text: "Kids Shoes",
+                        text: "Best Sellers",
                       )
                     ],
                   ),

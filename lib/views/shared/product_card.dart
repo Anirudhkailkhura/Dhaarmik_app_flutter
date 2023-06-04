@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:online_product_app/views/ui/favorite.dart';
+import 'package:provider/provider.dart';
 
+import '../../controllers/favorites_provider.dart';
+import '../../models/constants.dart';
 import 'appstyle.dart';
-
 
 class ProductCard extends StatefulWidget {
   const ProductCard(
@@ -24,13 +28,16 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
+ 
+
   @override
   Widget build(BuildContext context) {
+   var favoritesNotifier = Provider.of<FavoritesNotifier>(context, listen: true);
+    favoritesNotifier.getFavorites();
     bool selected = true;
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(8, 0, 20, 0),
-      
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         child: Container(
@@ -57,9 +64,32 @@ class _ProductCardState extends State<ProductCard> {
                   Positioned(
                     right: 10,
                     top: 10,
+                    //child :consumer
                     child: GestureDetector(
-                      onTap: null,
-                      child: const Icon(MaterialCommunityIcons.heart_outline),
+                      onTap: () async {
+                        //if id is in the list navigate to the fav page.
+                        if (favoritesNotifier.ids.contains(widget.id)) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Favorites()));
+                        } else {
+                          favoritesNotifier.createfav({
+                            "id": widget.id,
+                            "name": widget.name,
+                            "category": widget.category,
+                            "price": widget.price,
+                            "imageUrl": widget.image,
+                          });
+                        }
+                        setState(() {
+                          
+                        });
+                  
+                      },
+                      child: favoritesNotifier.ids.contains(widget.id)
+                          ? const Icon(AntDesign.heart)
+                          : const Icon(AntDesign.hearto),
                     ),
                   ),
                 ],
@@ -100,10 +130,11 @@ class _ProductCardState extends State<ProductCard> {
                         const SizedBox(
                           width: 5,
                         ),
-                        ChoiceChip(label: const Text(" "), 
-                        selected: selected,
-                        visualDensity: VisualDensity.compact,
-                        selectedColor: Colors.black,
+                        ChoiceChip(
+                          label: const Text(" "),
+                          selected: selected,
+                          visualDensity: VisualDensity.compact,
+                          selectedColor: Colors.black,
                         )
                       ],
                     )

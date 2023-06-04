@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../controllers/mainscreen_provider.dart';
 import '../shared/bottom_nav.dart';
 import 'cartpage.dart';
+import 'favorite.dart';
 import 'homepage.dart';
 import 'searchpage.dart';
 
@@ -17,7 +18,7 @@ class MainScreen extends StatelessWidget {
   List<Widget> pageList = [
     const HomePage(),
     const SearchPage(),
-    const HomePage(),
+    const Favorites(),
     CartPage(),
     const ProfilePage()
   ];

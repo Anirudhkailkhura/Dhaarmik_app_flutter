@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:online_product_app/controllers/favorites_provider.dart';
+import 'package:online_product_app/views/ui/favorite.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/product_provider.dart';
+import '../../models/constants.dart';
 import '../../models/sneaker_model.dart';
 import '../../services/helper.dart';
 import '../shared/appstyle.dart';
@@ -23,6 +26,7 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   final PageController pageController = PageController();
   final _cartBox = Hive.box('cart_box');
+  final _favBox = Hive.box("fav_box");
 
   late Future<Products> _product;
 
@@ -40,6 +44,9 @@ class _ProductPageState extends State<ProductPage> {
     await _cartBox.add(newCart);
   }
 
+  //favorites
+
+  
   @override
   void initState() {
     super.initState();
@@ -48,6 +55,8 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    var favoritesNotifier = Provider.of<FavoritesNotifier>(context, listen: true);
+    favoritesNotifier.getFavorites();
     return Scaffold(
         body: FutureBuilder<Products>(
             future: _product,
@@ -133,10 +142,51 @@ class _ProductPageState extends State<ProductPage> {
                                                         .height *
                                                     0.1,
                                                 right: 20,
-                                                child: const Icon(
-                                                  AntDesign.hearto,
-                                                  color: Colors.grey,
-                                                )),
+                                                child:
+                                                    Consumer<FavoritesNotifier>(
+                                                        builder: (context,
+                                                            favoritesNotifier,
+                                                            child) {
+                                                  return GestureDetector(
+                                                    onTap: () {
+                                                      print(
+                                                          "working product ${productData.name}");
+                                                      if (favoritesNotifier.ids
+                                                          .contains(
+                                                              widget.id)) {
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder:
+                                                                    (context) =>
+                                                                        const Favorites()));
+                                                      } else {
+                                                        favoritesNotifier.createfav({
+                                                          "id": productData.id,
+                                                          "name":
+                                                              productData.name,
+                                                          "category":
+                                                              productData
+                                                                  .category,
+                                                          "price":
+                                                              productData.price,
+                                                          "imageUrl":
+                                                              productData
+                                                                  .imageUrl[0],
+                                                        });
+                                                      }
+                                                      setState(() {});
+                                                    },
+                                                    child: favoritesNotifier.ids
+                                                            .contains(
+                                                                productData.id)
+                                                        ? const Icon(
+                                                            AntDesign.heart,
+                                                          )
+                                                        : const Icon(
+                                                            AntDesign.hearto),
+                                                  );
+                                                })),
                                             Positioned(
                                                 bottom: 0,
                                                 right: 0,

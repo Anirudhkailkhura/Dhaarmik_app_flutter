@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hive/hive.dart';
+import 'package:online_product_app/views/UI/mainscreen.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/cart_provider.dart';
@@ -69,7 +70,14 @@ class _CartPageState extends State<CartPage> {
                                 children: [
                                   SlidableAction(
                                     flex: 1,
-                                    onPressed: doNothing,
+                                    onPressed: (context) {
+                                      cartProvider.deleteCart(data["key"]);
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MainScreen()));
+                                    },
                                     backgroundColor: const Color(0xFF000000),
                                     foregroundColor: Colors.white,
                                     icon: Icons.delete,
@@ -201,6 +209,7 @@ class _CartPageState extends State<CartPage> {
                                                 ),
                                                 InkWell(
                                                     onTap: () {
+                                                      print("decrese");
                                                       cartProvider.decrement();
                                                     },
                                                     child: const Icon(
@@ -233,6 +242,4 @@ class _CartPageState extends State<CartPage> {
       ),
     );
   }
-
-  void doNothing(BuildContext context) {}
 }

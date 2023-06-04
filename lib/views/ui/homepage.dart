@@ -86,13 +86,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       unselectedLabelColor: Colors.grey.withOpacity(0.3),
                       tabs: const [
                         Tab(
-                          text: "Men bracelets",
+                          text: "Stone Bracelets",
                         ),
                         Tab(
-                          text: "Women bracelets",
+                          text: "Crystal bracelets",
                         ),
                         Tab(
-                          text: "Kids bracelets",
+                          text: "Best Sellers",
                         )
                       ],
                     ),

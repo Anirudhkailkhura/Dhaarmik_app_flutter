@@ -77,8 +77,9 @@
     "category": "Stone bracelet",
     "imageUrl": [
       "https://m.media-amazon.com/images/I/51RpFR7jwyL._UY500_.jpg",
-      "https://m.media-amazon.com/images/I/812W38RlPkL._UY395_.jpg",
       "https://m.media-amazon.com/images/I/71Y7ZK6-EzL._UY395_.jpg",
+      "https://m.media-amazon.com/images/I/812W38RlPkL._UY395_.jpg",
+      
       "https://m.media-amazon.com/images/I/81FXTccBK9L._UY395_.jpg"
     ],
     "oldPrice": "999.00",
@@ -101,8 +102,9 @@
     "category": "Stone bracelet",
     "imageUrl": [
       "https://m.media-amazon.com/images/I/61Ik6bu6DAL._UY395_.jpg",
-      "https://m.media-amazon.com/images/I/81mMqk45XXL._UY395_.jpg",
       "https://m.media-amazon.com/images/I/71VCYUTPFuL._UY395_.jpg",
+      "https://m.media-amazon.com/images/I/81mMqk45XXL._UY395_.jpg",
+     
       "https://m.media-amazon.com/images/I/71W12PUQ9DL._UY500_.jpg"
     ],
     "oldPrice": "49.00",
@@ -121,27 +123,26 @@
   },
   {
     "id": "5",
-    "name": "Wieght Loss Crystal",
-    "category": "Stone bracelet",
+    "name": "Snowflake Stone",
+    "category": "Kids' Running",
     "imageUrl": [
-      "https://m.media-amazon.com/images/I/51XZ-Eg9uBL._SY550_.jpg",
-      "https://m.media-amazon.com/images/I/61u-4aLFQ-L._SX425_.jpg",
-      "https://m.media-amazon.com/images/I/61sM3R1TdSL._SX425_.jpg",
-      "https://m.media-amazon.com/images/I/41B46zHvV3L._SX425_.jpg"
+      "https://m.media-amazon.com/images/I/51bSlf0NkcL._UY500_.jpg",
+      "https://m.media-amazon.com/images/I/61693Dmsl3L._UY395_.jpg",
+      "https://m.media-amazon.com/images/I/71Tzsr-U8-L._UY395_.jpg"
     ],
-    "oldPrice": "599.00",
-    "price": "49.00",
+    "oldPrice": "349.00",
     "sizes": [
-      { "size": "6.0", "isSelected": false },
-      { "size": "6.5", "isSelected": false },
-      { "size": "7.0", "isSelected": false },
-      { "size": "7.5", "isSelected": false },
-      { "size": "8.0", "isSelected": false },
-      { "size": "8.5", "isSelected": false },
-      { "size": "9.0", "isSelected": false }
+      { "size": "3.0", "isSelected": false },
+      { "size": "3.5", "isSelected": false },
+      { "size": "4.0", "isSelected": false },
+      { "size": "4.5", "isSelected": false },
+      { "size": "5.0", "isSelected": false },
+      { "size": "5.5", "isSelected": false },
+      { "size": "6.0", "isSelected": false }
     ],
-    "description": "Expedites Metabolism | Balances hunger cravingsMakes the body feel energetic | Balances hormonal HealthBlue Apatite : Balances Metabolism and resolves stomach issues.Sodalite : Strengthens bones and muscles Sunstones .",
-    "title": "DHAARMIK Wieght Loss Crystal Bracelet | Natural Stone"
+    "price": "58.99",
+    "description": "Transformation is the main attribute of this bracelet. It possesses the ability to transform bad into good. To exploit this attribute of this bracelet, wear it giving the intent of transforming your current situation – be it – in love, education, health, career.",
+    "title": "Dhaarmik Snowflake Obsidian Crystal Bracelet"
   },
   {
     "id": "6",
@@ -169,7 +170,7 @@
   },
   {
     "id": "7",
-    "name": "Aquamarine Bracelet",
+    "name": "Aquamarine stone",
     "category": "Stone bracelet",
     "imageUrl": [
       "https://m.media-amazon.com/images/I/419Vpa4ZwIL._SX425_.jpg",

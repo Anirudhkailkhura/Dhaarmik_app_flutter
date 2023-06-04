@@ -69,7 +69,7 @@ class HomeWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Latest Shoes",
+                    "Latest Products",
                     style: appstyle(24, Colors.black, FontWeight.bold),
                   ),
                   GestureDetector(
@@ -101,8 +101,8 @@ class HomeWidget extends StatelessWidget {
         ),
         SizedBox(
             height: MediaQuery.of(context).size.height * 0.13,
-            //FutureBuilder is a widget that responds to changes in state 
-            //or dependencies by building itself based on the most recent snapshot of a Future 
+            //FutureBuilder is a widget that responds to changes in state
+            //or dependencies by building itself based on the most recent snapshot of a Future
             child: FutureBuilder<List<Products>>(
                 future: _male,
                 builder: (context, snapshot) {
