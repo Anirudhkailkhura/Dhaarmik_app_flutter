@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-
 class FavoritesNotifier extends ChangeNotifier {
   final _favBox = Hive.box('fav_box');
   List<dynamic> _ids = [];
@@ -34,12 +33,11 @@ class FavoritesNotifier extends ChangeNotifier {
     //doing something in model
     _favorites = favData.toList();
     _ids = _favorites.map((item) => item["id"]).toList();
-    
   }
+
   //create a new favBox and ad then adds the adddFav map in it.
   Future<void> createfav(Map<String, dynamic> addfav) async {
     await _favBox.add(addfav);
     //call the getFav function which return arry of favoriotes
   }
-
 }

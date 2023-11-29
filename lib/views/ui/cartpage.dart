@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hive/hive.dart';
-import 'package:online_product_app/views/UI/mainscreen.dart';
+import 'package:online_product_app/views/ui/mainscreen.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../controllers/cart_provider.dart';

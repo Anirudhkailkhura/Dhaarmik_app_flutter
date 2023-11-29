@@ -44,7 +44,7 @@ dependencies:
   hive_flutter: ^1.1.0
   provider: ^6.0.5
   staggered_grid_view_flutter: ^0.0.4
-  flutter_screenutil: ^5.7.0
+  flutter_screenutil: ^5.9.0
 
 dev_dependencies:
   flutter_test:

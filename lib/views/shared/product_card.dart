@@ -28,11 +28,10 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
- 
-
   @override
   Widget build(BuildContext context) {
-   var favoritesNotifier = Provider.of<FavoritesNotifier>(context, listen: true);
+    var favoritesNotifier =
+        Provider.of<FavoritesNotifier>(context, listen: true);
     favoritesNotifier.getFavorites();
     bool selected = true;
 
@@ -82,10 +81,7 @@ class _ProductCardState extends State<ProductCard> {
                             "imageUrl": widget.image,
                           });
                         }
-                        setState(() {
-                          
-                        });
-                  
+                        setState(() {});
                       },
                       child: favoritesNotifier.ids.contains(widget.id)
                           ? const Icon(AntDesign.heart)

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:online_product_app/views/shared/product_card.dart';
+import 'package:online_product_app/views/ui/product_by_cat.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/product_provider.dart';
 import '../../models/sneaker_model.dart';
-import '../UI/product_by_cat.dart';
-import '../UI/product_page.dart';
+
+import '../ui/product_page.dart';
 import 'appstyle.dart';
 import 'new_shoes.dart';
 
