@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'dbestech',
+            title: 'dhaarmik app',
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),

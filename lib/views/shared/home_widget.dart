@@ -26,42 +26,49 @@ class HomeWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-            height: MediaQuery.of(context).size.height * 0.405,
-            child: FutureBuilder<List<Products>>(
-                future: _male,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const CircularProgressIndicator();
-                  } else if (snapshot.hasError) {
-                    return Text("Error ${snapshot.error}");
-                  } else {
-                    final male = snapshot.data;
-                    return ListView.builder(
-                        itemCount: male!.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          final shoe = snapshot.data![index];
-                          return GestureDetector(
-                            onTap: () {
-                              productNotifier.shoesSizes = shoe.sizes;
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProductPage(
-                                          id: shoe.id,
-                                          category: shoe.category)));
-                            },
-                            child: ProductCard(
-                              price: "\$${shoe.price}",
-                              category: shoe.category,
-                              id: shoe.id,
-                              name: shoe.name,
-                              image: shoe.imageUrl[0],
-                            ),
-                          );
-                        });
-                  }
-                })),
+          height: MediaQuery.of(context).size.height * 0.405,
+          child: FutureBuilder<List<Products>>(
+            future: _male,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done &&
+                  snapshot.hasData) {
+                final male = snapshot.data;
+                return ListView.builder(
+                  itemCount: male!.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    final shoe = snapshot.data![index];
+                    return GestureDetector(
+                      onTap: () {
+                        productNotifier.shoesSizes = shoe.sizes;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProductPage(
+                                    id: shoe.id, category: shoe.category)));
+                      },
+                      child: ProductCard(
+                        price: "\$${shoe.price}",
+                        category: shoe.category,
+                        id: shoe.id,
+                        name: shoe.name,
+                        image: shoe.imageUrl[0],
+                      ),
+                    );
+                  },
+                );
+              }
+
+              if (snapshot.hasError) {
+                return Text("Error ${snapshot.error}");
+              }
+
+              return const Center(
+                child: CircularProgressIndicator.adaptive(),
+              );
+            },
+          ),
+        ),
         Column(
           children: [
             Padding(

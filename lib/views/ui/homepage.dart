@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../models/sneaker_model.dart';
@@ -25,6 +27,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   void getMale() {
     _male = Helper().getMaleProducts();
+    log(_male.toString());
   }
 
   void getFemale() {
@@ -58,7 +61,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/images/top_image.png"),
-                      fit: BoxFit.fill)),
+                      fit: BoxFit.cover)),
               child: Container(
                 padding: const EdgeInsets.only(left: 8, bottom: 15),
                 width: MediaQuery.of(context).size.width,
