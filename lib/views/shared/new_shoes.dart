@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class NewShoes extends StatelessWidget {
   const NewShoes({
-    super.key, required this.imageUrl,
+    super.key, required this.imageUrl, required Null Function() onTap,
   });
 
   final String imageUrl;

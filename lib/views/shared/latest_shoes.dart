@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_product_app/views/shared/stagger_tile.dart';
+import 'package:online_product_app/views/ui/product_page.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 import '../../models/sneaker_model.dart';
@@ -30,20 +31,27 @@ class latestShoes extends StatelessWidget {
                 mainAxisSpacing: 16,
                 itemCount: male!.length,
                 scrollDirection: Axis.vertical,
-                staggeredTileBuilder: (index) =>
-                    StaggeredTile.extent(
-                        (index % 2 == 0) ? 1 : 1,
-                        (index % 4 == 1 || index % 4 == 3)
-                            ? MediaQuery.of(context).size.height *
-                                0.35
-                            : MediaQuery.of(context).size.height *
-                                0.3),
+                staggeredTileBuilder: (index) => StaggeredTile.extent(
+                    (index % 2 == 0) ? 1 : 1,
+                    (index % 4 == 1 || index % 4 == 3)
+                        ? MediaQuery.of(context).size.height * 0.35
+                        : MediaQuery.of(context).size.height * 0.3),
                 itemBuilder: (context, index) {
                   final shoe = snapshot.data![index];
-                  return StaggerTile(
-                      imageUrl: shoe.imageUrl[1],
-                      name: shoe.name,
-                      price: "\$${shoe.price}");
+
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ProductPage(bracelets: shoe)));
+                    },
+                    child: StaggerTile(
+                        imageUrl: shoe.imageUrl[1],
+                        name: shoe.name,
+                        price: "\$${shoe.price}"),
+                  );
                 });
           }
         });

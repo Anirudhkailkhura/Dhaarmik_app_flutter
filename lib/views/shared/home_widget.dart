@@ -5,7 +5,6 @@ import 'package:online_product_app/views/ui/product_by_cat.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/product_provider.dart';
 import '../../models/sneaker_model.dart';
-
 import '../ui/product_page.dart';
 import 'appstyle.dart';
 import 'new_shoes.dart';
@@ -44,8 +43,8 @@ class HomeWidget extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ProductPage(
-                                    id: shoe.id, category: shoe.category)));
+                                builder: (context) =>
+                                    ProductPage(bracelets: shoe)));
                       },
                       child: ProductCard(
                         price: "\$${shoe.price}",
@@ -128,6 +127,14 @@ class HomeWidget extends StatelessWidget {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: NewShoes(
+                              onTap: () {
+                                productNotifier.shoesSizes = shoe.sizes;
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ProductPage(bracelets: shoe)));
+                              },
                               imageUrl: shoe.imageUrl[1],
                             ),
                           );
