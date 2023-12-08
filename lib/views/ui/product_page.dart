@@ -129,14 +129,14 @@ class _ProductPageState extends State<ProductPage> {
                                                   widget.bracelets.imageUrl[0],
                                             });
                                           }
-                                          setState(() {});
+                                          //setState(() {});
                                         },
                                         child: favoritesNotifier.ids
                                                 .contains(widget.bracelets.id)
                                             ? const Icon(
-                                                AntDesign.heart,
+                                                AntDesign.heart,color: Colors.black,
                                               )
-                                            : const Icon(AntDesign.hearto),
+                                            : const Icon(AntDesign.hearto,color: Colors.black),
                                       );
                                     })),
                                 Positioned(
