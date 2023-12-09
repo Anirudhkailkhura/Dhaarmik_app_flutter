@@ -7,9 +7,7 @@ import 'package:online_product_app/controllers/favorites_provider.dart';
 import 'package:online_product_app/views/ui/favorite.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/product_provider.dart';
-import '../../models/constants.dart';
 import '../../models/sneaker_model.dart';
-import '../../services/helper.dart';
 import '../shared/appstyle.dart';
 import '../shared/checkout_btn.dart';
 

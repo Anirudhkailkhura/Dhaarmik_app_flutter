@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:online_product_app/views/ui/Auth/login.dart';
+import 'package:online_product_app/views/ui/nonuser.dart';
 import 'package:online_product_app/views/ui/profile.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/mainscreen_provider.dart';
@@ -16,7 +17,7 @@ class MainScreen extends StatelessWidget {
   List<Widget> pageList = [
     const HomePage(),
     SearchPage(),
-    const Favorites(),
+    const LoginPage(),
     CartPage(),
     const ProfilePage()
   ];

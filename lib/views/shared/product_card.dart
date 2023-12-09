@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:online_product_app/views/ui/favorite.dart';
 import 'package:provider/provider.dart';
-
 import '../../controllers/favorites_provider.dart';
-import '../../models/constants.dart';
 import 'appstyle.dart';
 
 class ProductCard extends StatefulWidget {

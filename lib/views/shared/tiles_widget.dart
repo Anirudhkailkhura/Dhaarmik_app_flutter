@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-
 class TilesWidget extends StatelessWidget {
   final String title;
   final IconData leading;
@@ -30,8 +29,8 @@ class TilesWidget extends StatelessWidget {
                 AntDesign.right,
                 size: 16,
               )
-            : SvgPicture.asset(
-                "assets/images/usa.svg",
+            : Image.asset(
+                "assets/images/Flag-India.webp",
                 width: 15,
                 height: 20,
               ));

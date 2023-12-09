@@ -1,8 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:online_product_app/controllers/product_provider.dart';
-import 'package:online_product_app/models%20(1)/cart/get_products.dart';
 import 'package:online_product_app/models/sneaker_model.dart';
 import 'package:online_product_app/services/helper.dart';
 import 'package:online_product_app/views/shared/custom_field.dart';
@@ -10,7 +10,6 @@ import 'package:online_product_app/views/shared/reusable_text.dart';
 import 'package:online_product_app/views/ui/product_page.dart';
 import 'package:provider/provider.dart';
 import '../shared/appstyle.dart';
-import '../shared/custom_field.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -57,13 +56,13 @@ class _SearchPageState extends State<SearchPage> {
                       child: CircularProgressIndicator.adaptive(),
                     );
                   } else if (snapshot.hasError) {
-                    Center(
+                    return Center(
                         child: ReusableText(
                             text: "error retriving the data ",
                             style:
                                 appstyle(20, Colors.black, FontWeight.bold)));
                   } else if (snapshot.data!.isEmpty) {
-                    Center(
+                    return Center(
                         child: ReusableText(
                             text: "NO DATA FOUND",
                             style:
@@ -85,10 +84,61 @@ class _SearchPageState extends State<SearchPage> {
                             child: Padding(
                               padding: EdgeInsets.all(8.h),
                               child: ClipRRect(
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(12))
-                                      
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(12)),
+                                child: Container(
+                                  height: 100.h,
+                                  width: 325,
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey.shade100,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.grey.shade500,
+                                            spreadRadius: 5,
+                                            blurRadius: 0.3,
+                                            offset: const Offset(0, 1))
+                                      ]),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.all(12.h),
+                                        child: CachedNetworkImage(
+                                          imageUrl: shoe.imageUrl[0],
+                                          width: 70.w,
+                                          height: 70.h,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
+                                      Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 12, left: 10.w),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              ReusableText(
+                                                  text: shoe.name,
+                                                  style: appstyle(
+                                                      16,
+                                                      Colors.black,
+                                                      FontWeight.w600)),
+                                              const SizedBox(
+                                                height: 5,
+                                              ),
+                                              ReusableText(
+                                                  text: "\$ ${shoe.price}",
+                                                  style: appstyle(
+                                                      13,
+                                                      Colors.grey.shade600,
+                                                      FontWeight.w600))
+                                            ],
+                                          ))
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           );
                         });

@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:online_product_app/controllers/cart_provider.dart';
 import 'package:provider/provider.dart';
 import 'controllers/favorites_provider.dart';
+import 'controllers/login_provider.dart';
 import 'controllers/mainscreen_provider.dart';
 import 'controllers/product_provider.dart';
 import 'views/ui/mainscreen.dart';
@@ -22,6 +23,7 @@ void main() async {
     ChangeNotifierProvider(create: (context) => ProductNotifier()),
     ChangeNotifierProvider(create: (context) => CartProvider()),
     ChangeNotifierProvider(create: (context) => FavoritesNotifier()),
+    ChangeNotifierProvider(create: (context) => LoginNotifier()),
   ], child: const MyApp()));
 }
 
@@ -41,6 +43,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'dhaarmik app',
             theme: ThemeData(
+              scaffoldBackgroundColor: const Color(0xFFE2E2E2),
               primarySwatch: Colors.blue,
             ),
 
