@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               hintText: 'Email',
               controller: email,
               validator: (email) {
-                if (email!.isEmpty || email.contains("@")) {
+                if (email!.isEmpty && email.contains("@")) {
                   return "please provide valid email address";
                 } else {
                   return null;
@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                     : const Icon(Icons.visibility),
               ),
               validator: (passward) {
-                if (passward!.isEmpty || passward.length < 7) {
+                if (passward!.isEmpty && passward.length < 7) {
                   return "Passward length should be greater than 7";
                 } else {
                   return null;
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
               },
             ),
             SizedBox(
-              height: 10.h,
+              height: 40.h,
             ),
             Align(
               alignment: Alignment.centerRight,
