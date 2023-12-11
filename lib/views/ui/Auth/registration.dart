@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_product_app/views/ui/Auth/login.dart';
 import 'package:provider/provider.dart';
-
 import '../../../controllers/login_provider.dart';
 import '../../shared/appstyle.dart';
 import '../../shared/custom_textfield.dart';
@@ -43,7 +42,7 @@ class _RegistrationState extends State<Registration> {
                 text: "Welcome!",
                 style: appstyle(30, Colors.black, FontWeight.w600)),
             ReusableText(
-                text: "Fill up the details tosignup for the account",
+                text: "Fill up the details to signup for the account",
                 style: appstyle(14, Colors.black, FontWeight.normal)),
             SizedBox(height: 50.h),
             CustomTextField(
@@ -64,7 +63,7 @@ class _RegistrationState extends State<Registration> {
               hintText: 'Username',
               controller: username,
               validator: (username) {
-                if (username!.isEmpty ) {
+                if (username!.isEmpty) {
                   return "please provide valid username";
                 } else {
                   return null;

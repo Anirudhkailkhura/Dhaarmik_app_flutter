@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:http/http.dart';
 import 'package:online_product_app/controllers/login_provider.dart';
+import 'package:online_product_app/models/auth/login_model.dart';
 import 'package:online_product_app/views/shared/appstyle.dart';
 import 'package:online_product_app/views/shared/reusable_text.dart';
 import 'package:online_product_app/views/ui/Auth/registration.dart';
+import 'package:online_product_app/views/ui/mainscreen.dart';
 import 'package:provider/provider.dart';
-
 import '../../shared/custom_textfield.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,7 +19,17 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   TextEditingController email = TextEditingController();
-  TextEditingController passward = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  bool validation = false;
+
+  void formValidation() {
+    if (email.text.isNotEmpty && password.text.isNotEmpty) {
+      validation = true;
+    } else {
+      validation = false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
             CustomTextField(
               obscureText: authNotifier.isObsecure,
               hintText: 'Password',
-              controller: passward,
+              controller: password,
               suffixIcon: GestureDetector(
                 onTap: () {
                   authNotifier.isObsecure = !authNotifier.isObsecure;
@@ -71,9 +83,9 @@ class _LoginPageState extends State<LoginPage> {
                     ? const Icon(Icons.visibility_off)
                     : const Icon(Icons.visibility),
               ),
-              validator: (passward) {
-                if (passward!.isEmpty && passward.length < 7) {
-                  return "Passward length should be greater than 7";
+              validator: (password) {
+                if (password!.isEmpty && password.length < 7) {
+                  return "Password length should be greater than 7";
                 } else {
                   return null;
                 }
@@ -100,7 +112,25 @@ class _LoginPageState extends State<LoginPage> {
               height: 10.h,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                formValidation();
+                if (validation) {
+                  LoginModel model =
+                      LoginModel(email: email.text, password: password.text);
+                  authNotifier.userLogin(model).then((response) {
+                    if (response == true) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MainScreen()));
+                    } else {
+                      debugPrint("Failed to login");
+                    }
+                  });
+                } else {
+                  debugPrint("form not validate");
+                }
+              },
               child: Container(
                 height: 55.h,
                 width: 300,
@@ -113,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                       style: appstyle(18, Colors.black, FontWeight.bold)),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

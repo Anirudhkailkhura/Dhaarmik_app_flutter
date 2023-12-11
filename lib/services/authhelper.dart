@@ -32,6 +32,7 @@ class AuthHelper {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString("token", userToken);
       await prefs.setString("userId", userId);
+      await prefs.setBool("isLogged", true);
       // Returning true to indicate successful login
       return true;
     } else {
@@ -41,59 +42,57 @@ class AuthHelper {
   }
 
   Future<bool> signup(SignupModel model) async {
-  // Set up request headers
-  Map<String, String> requestHeaders = {"content-Type": "application/json"};
+    // Set up request headers
+    Map<String, String> requestHeaders = {"content-Type": "application/json"};
 
-  // Construct the URL for user signup using the Config class
-  var url = Uri.http(Config.apiUrl, Config.loginUrl);
+    // Construct the URL for user signup using the Config class
+    var url = Uri.http(Config.apiUrl, Config.loginUrl);
 
-  // Make a POST request to the signup URL with the provided model data
-  var response = await client.post(
-    url,
-    headers: requestHeaders,
-    body: jsonEncode(model.toJson()),
-  );
+    // Make a POST request to the signup URL with the provided model data
+    var response = await client.post(
+      url,
+      headers: requestHeaders,
+      body: jsonEncode(model.toJson()),
+    );
 
-  // Check if the response status code is 201 (Created)
-  if (response.statusCode == 201) {
-    // If successful signup, return true
-    return true;
-  } else {
-    // If the response status code is not 201, return false
-    return false;
+    // Check if the response status code is 201 (Created)
+    if (response.statusCode == 201) {
+      // If successful signup, return true
+      return true;
+    } else {
+      // If the response status code is not 201, return false
+      return false;
+    }
   }
-}
-
 
   Future<ProfileRes> getProfile() async {
-  // Retrieve the user token from SharedPreferences
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  String? userToken = prefs.getString("token");
+    // Retrieve the user token from SharedPreferences
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? userToken = prefs.getString("token");
 
-  // Set up request headers including the user token for authentication
-  Map<String, String> requestHeaders = {
-    "content-Type": "application/json",
-    "token": "Bearer $userToken"
-  };
+    // Set up request headers including the user token for authentication
+    Map<String, String> requestHeaders = {
+      "content-Type": "application/json",
+      "token": "Bearer $userToken"
+    };
 
-  // Construct the URL for fetching the user profile
-  var url = Uri.http(Config.apiUrl, Config.getUserUrl);
+    // Construct the URL for fetching the user profile
+    var url = Uri.http(Config.apiUrl, Config.getUserUrl);
 
-  // Make a POST request to the profile URL with the provided headers
-  var response = await client.post(
-    url,
-    headers: requestHeaders,
-  );
+    // Make a POST request to the profile URL with the provided headers
+    var response = await client.post(
+      url,
+      headers: requestHeaders,
+    );
 
-  // Check if the response status code is 200 (OK)
-  if (response.statusCode == 200) {
-    // If successful, parse the response body into a ProfileRes object
-    var profile = profileResFromJson(response.body);
-    return profile;
-  } else {
-    // If the response status code is not 200, throw an exception with an error message
-    throw Exception("Failed to get profile");
+    // Check if the response status code is 200 (OK)
+    if (response.statusCode == 200) {
+      // If successful, parse the response body into a ProfileRes object
+      var profile = profileResFromJson(response.body);
+      return profile;
+    } else {
+      // If the response status code is not 200, throw an exception with an error message
+      throw Exception("Failed to get profile");
+    }
   }
-}
-
 }
