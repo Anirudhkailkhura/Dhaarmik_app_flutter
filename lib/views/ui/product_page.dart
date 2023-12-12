@@ -4,7 +4,10 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:online_product_app/controllers/favorites_provider.dart';
+import 'package:online_product_app/controllers/login_provider.dart';
+import 'package:online_product_app/views/ui/Auth/login.dart';
 import 'package:online_product_app/views/ui/favorite.dart';
+import 'package:online_product_app/views/ui/nonuser.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/product_provider.dart';
 import '../../models/sneaker_model.dart';
@@ -33,6 +36,7 @@ class _ProductPageState extends State<ProductPage> {
 
   @override
   Widget build(BuildContext context) {
+    var authNotifier = Provider.of<LoginNotifier>(context);
     var favoritesNotifier =
         Provider.of<FavoritesNotifier>(context, listen: true);
     favoritesNotifier.getFavorites();
@@ -109,32 +113,42 @@ class _ProductPageState extends State<ProductPage> {
                                         onTap: () {
                                           print(
                                               "working product ${widget.bracelets.name}");
-                                          if (favoritesNotifier.ids
-                                              .contains(widget.bracelets)) {
+                                          if (authNotifier.loggedIn == true) {
+                                            if (favoritesNotifier.ids.contains(
+                                                widget.bracelets.id)) {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const Favorites()));
+                                            } else {
+                                              favoritesNotifier.createfav({
+                                                "id": widget.bracelets.id,
+                                                "name": widget.bracelets.name,
+                                                "category":
+                                                    widget.bracelets.category,
+                                                "price": widget.bracelets.price,
+                                                "imageUrl": widget
+                                                    .bracelets.imageUrl[0],
+                                              });
+                                            }
+                                          } else {
                                             Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        const Favorites()));
-                                          } else {
-                                            favoritesNotifier.createfav({
-                                              "id": widget.bracelets.id,
-                                              "name": widget.bracelets.name,
-                                              "category":
-                                                  widget.bracelets.category,
-                                              "price": widget.bracelets.price,
-                                              "imageUrl":
-                                                  widget.bracelets.imageUrl[0],
-                                            });
+                                                        const LoginPage()));
                                           }
                                           //setState(() {});
                                         },
                                         child: favoritesNotifier.ids
                                                 .contains(widget.bracelets.id)
                                             ? const Icon(
-                                                AntDesign.heart,color: Colors.black,
+                                                AntDesign.heart,
+                                                color: Colors.black,
                                               )
-                                            : const Icon(AntDesign.hearto,color: Colors.black),
+                                            : const Icon(AntDesign.hearto,
+                                                color: Colors.black),
                                       );
                                     })),
                                 Positioned(

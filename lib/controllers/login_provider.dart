@@ -40,24 +40,31 @@ class LoginNotifier extends ChangeNotifier {
   }
 
   Future<bool> userLogin(LoginModel model) async {
-  // Obtain an instance of SharedPreferences
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // Obtain an instance of SharedPreferences
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-  // Set a boolean variable 'processing' to true
-  processing = true;
+    // Set a boolean variable 'processing' to true
+    processing = true;
 
-  // Call the login method from AuthHelper, passing the LoginModel
-  bool response = await AuthHelper().login(model);
+    // Call the login method from AuthHelper, passing the LoginModel
+    bool response = await AuthHelper().login(model);
 
-  // Set the value of 'loginResponseBool' to the response from the login method
-  loginResponseBool = response;
+    // Set the value of 'loginResponseBool' to the response from the login method
+    loginResponseBool = response;
 
-  // Retrieve the boolean value associated with the key "isLogged" from SharedPreferences
-  // If the value doesn't exist, use a default value of false
-  loggedIn = prefs.getBool("isLogged") ?? false;
+    // Retrieve the boolean value associated with the key "isLogged" from SharedPreferences
+    // If the value doesn't exist, use a default value of false
+    loggedIn = prefs.getBool("isLogged") ?? false;
 
-  // Return the value of 'loginResponseBool'
-  return loginResponseBool;
-}
+    // Return the value of 'loginResponseBool'
+    return loginResponseBool;
+  }
 
+  logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("token");
+    prefs.remove("userId");
+    prefs.setBool("isLogged", false);
+    loggedIn = prefs.getBool("isLogged") ?? false;
+  }
 }

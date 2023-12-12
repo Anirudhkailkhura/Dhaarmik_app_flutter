@@ -81,8 +81,8 @@ class _ProductCardState extends State<ProductCard> {
                         setState(() {});
                       },
                       child: favoritesNotifier.ids.contains(widget.id)
-                          ? const Icon(AntDesign.heart)
-                          : const Icon(AntDesign.hearto),
+                          ? const Icon(AntDesign.hearto)
+                          : const Icon(AntDesign.heart),
                     ),
                   ),
                 ],
