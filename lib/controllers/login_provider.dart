@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_product_app/models/auth/login_model.dart';
+import 'package:online_product_app/models/auth/signup_model.dart';
 import 'package:online_product_app/services/authhelper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,31 +33,25 @@ class LoginNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool _loggedIn = false;
-  bool get loggedIn => _loggedIn;
+  bool? _loggedIn;
+  bool get loggedIn => _loggedIn ?? false;
   set loggedIn(bool newState) {
     _loggedIn = newState;
     notifyListeners();
   }
 
   Future<bool> userLogin(LoginModel model) async {
-    // Obtain an instance of SharedPreferences
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    // Set a boolean variable 'processing' to true
     processing = true;
 
-    // Call the login method from AuthHelper, passing the LoginModel
     bool response = await AuthHelper().login(model);
+    processing = false;
 
-    // Set the value of 'loginResponseBool' to the response from the login method
     loginResponseBool = response;
 
-    // Retrieve the boolean value associated with the key "isLogged" from SharedPreferences
-    // If the value doesn't exist, use a default value of false
     loggedIn = prefs.getBool("isLogged") ?? false;
 
-    // Return the value of 'loginResponseBool'
     return loginResponseBool;
   }
 
@@ -67,4 +62,15 @@ class LoginNotifier extends ChangeNotifier {
     prefs.setBool("isLogged", false);
     loggedIn = prefs.getBool("isLogged") ?? false;
   }
+
+  Future<bool> registerUser(SignupModel model) async {
+    responseBool = await AuthHelper().signup(model);
+
+    return responseBool;
+  }
 }
+//  "email" : "anirudh@gmail.com",
+//     "password" : "anirudh2215",
+
+//test@gmail.com
+//test123

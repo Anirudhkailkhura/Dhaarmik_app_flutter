@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:http/http.dart';
 import 'package:online_product_app/controllers/login_provider.dart';
 import 'package:online_product_app/models/auth/login_model.dart';
 import 'package:online_product_app/views/shared/appstyle.dart';
@@ -113,17 +112,21 @@ class _LoginPageState extends State<LoginPage> {
             ),
             GestureDetector(
               onTap: () {
+                             
                 formValidation();
                 if (validation) {
                   LoginModel model =
                       LoginModel(email: email.text, password: password.text);
+                            
                   authNotifier.userLogin(model).then((response) {
+                    debugPrint("hello1");
                     if (response == true) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => MainScreen()));
                     } else {
+                      debugPrint(response.toString());
                       debugPrint("Failed to login");
                     }
                   });

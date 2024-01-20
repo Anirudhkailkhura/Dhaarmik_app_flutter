@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:online_product_app/controllers/login_provider.dart';
+import 'package:online_product_app/services/authhelper.dart';
+import 'package:online_product_app/views/ui/Auth/login.dart';
 import 'package:online_product_app/views/ui/favorite.dart';
 import 'package:provider/provider.dart';
 import '../../controllers/favorites_provider.dart';
@@ -27,6 +30,7 @@ class ProductCard extends StatefulWidget {
 class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
+    var authNotifier = Provider.of<LoginNotifier>(context);
     var favoritesNotifier =
         Provider.of<FavoritesNotifier>(context, listen: true);
     favoritesNotifier.getFavorites();
@@ -61,29 +65,42 @@ class _ProductCardState extends State<ProductCard> {
                     right: 10,
                     top: 10,
                     //child :consumer
-                    child: GestureDetector(
-                      onTap: () async {
-                        //if id is in the list navigate to the fav page.
-                        if (favoritesNotifier.ids.contains(widget.id)) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Favorites()));
-                        } else {
-                          favoritesNotifier.createfav({
-                            "id": widget.id,
-                            "name": widget.name,
-                            "category": widget.category,
-                            "price": widget.price,
-                            "imageUrl": widget.image,
-                          });
-                        }
-                        setState(() {});
-                      },
-                      child: favoritesNotifier.ids.contains(widget.id)
-                          ? const Icon(AntDesign.hearto)
-                          : const Icon(AntDesign.heart),
-                    ),
+                    child: Consumer<FavoritesNotifier>(
+                        builder: (context, FavoritesNotifier, child) {
+                      return Consumer<LoginNotifier>(
+                          builder: (context, authNotifier, child) {
+                        return GestureDetector(
+                          onTap: () async {
+                            if (authNotifier.loggedIn == true) {
+                              //if id is in the list navigate to the fav page.
+                              if (favoritesNotifier.ids.contains(widget.id)) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Favorites()));
+                              } else {
+                                favoritesNotifier.createfav({
+                                  "id": widget.id,
+                                  "name": widget.name,
+                                  "category": widget.category,
+                                  "price": widget.price,
+                                  "imageUrl": widget.image,
+                                });
+                              }
+                            } else {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()));
+                            }
+                          },
+                          child: favoritesNotifier.ids.contains(widget.id)
+                              ? const Icon(AntDesign.hearto)
+                              : const Icon(AntDesign.heart),
+                        );
+                      });
+                    }),
                   ),
                 ],
               ),

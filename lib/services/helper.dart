@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:online_product_app/models/sneaker_model.dart';
 import 'package:online_product_app/services/config.dart';
@@ -11,7 +10,7 @@ class Helper {
 
   Future<List<Products>> getMaleProducts() async {
     try {
-      var url = Uri.http(Config.apiUrl, Config.bracelets);
+      var url = Uri.https(Config.apiUrl, Config.bracelets);
 
       var response = await client.get(url);
 
@@ -42,7 +41,7 @@ class Helper {
 
 // crystal bracelets
   Future<List<Products>> getFemaleProducts() async {
-    var url = Uri.http(Config.apiUrl, Config.bracelets);
+    var url = Uri.https(Config.apiUrl, Config.bracelets);
 
     var response = await client.get(url);
 
@@ -55,11 +54,10 @@ class Helper {
       throw Exception("failed to get sneaker list");
     }
   }
-  
 
 //best sellers
   Future<List<Products>> getKidsProducts() async {
-    var url = Uri.http(Config.apiUrl, Config.bracelets);
+    var url = Uri.https(Config.apiUrl, Config.bracelets);
 
     var response = await client.get(url);
 
@@ -68,7 +66,6 @@ class Helper {
       var kids =
           kidsList.where((element) => element.category == "Best Sellers");
       return kids.toList();
-    
     } else {
       throw Exception("failed to get sneaker list");
     }
@@ -76,13 +73,11 @@ class Helper {
 
   // search
   Future<List<Products>> search(String searchQuery) async {
-   
-    var url = Uri.http(Config.apiUrl, "${Config.search}$searchQuery");
+    var url = Uri.https(Config.apiUrl, "${Config.search}$searchQuery");
 
-    var response = await client.get(url); 
+    var response = await client.get(url);
 
     if (response.statusCode == 200) {
-      
       final result = productsFromJson(response.body);
       return result;
     } else {

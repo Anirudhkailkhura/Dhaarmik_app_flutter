@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:online_product_app/models/auth/login_model.dart';
@@ -13,23 +14,25 @@ class AuthHelper {
 
   Future<bool> login(LoginModel model) async {
     // Setting up request headers
-    Map<String, String> requestHeaders = {"content-Type": "application/json"};
+     Map<String, String> requestHeaders = {"content-Type": "application/json"};
 
     // Constructing the URL using Config class
-    var url = Uri.http(Config.apiUrl, Config.loginUrl);
+    var url = Uri.https(Config.apiUrl, Config.loginUrl);
 
     // Making a POST request to the login URL with the provided model data
-    var response = await client.post(url,
+   var response = await client.post(url,
         headers: requestHeaders, body: jsonEncode(model.toJson()));
 
     // Checking if the response status code is 200 (OK)
     if (response.statusCode == 200) {
       // If the response is successful, extract token and id from the response
-      String userToken = loginResponseModelFromJson(response.body).token;
-      String userId = loginResponseModelFromJson(response.body).id;
 
       // Saving the token and id to SharedPreferences for future use
       final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      String userToken = loginResponseModelFromJson(response.body).token;
+      String userId = loginResponseModelFromJson(response.body).id;
+
       await prefs.setString("token", userToken);
       await prefs.setString("userId", userId);
       await prefs.setBool("isLogged", true);
@@ -46,17 +49,20 @@ class AuthHelper {
     Map<String, String> requestHeaders = {"content-Type": "application/json"};
 
     // Construct the URL for user signup using the Config class
-    var url = Uri.http(Config.apiUrl, Config.loginUrl);
+    var url = Uri.https(Config.apiUrl, Config.signupUrl);
+    print(url);
 
     // Make a POST request to the signup URL with the provided model data
     var response = await client.post(
       url,
       headers: requestHeaders,
-      body: jsonEncode(model.toJson()),
+      body: jsonEncode(model),
     );
 
+    log(response.body, name: "AuthSignUp");
+
     // Check if the response status code is 201 (Created)
-    if (response.statusCode == 201) {
+    if (response.statusCode < 300) {
       // If successful signup, return true
       return true;
     } else {
@@ -77,7 +83,7 @@ class AuthHelper {
     };
 
     // Construct the URL for fetching the user profile
-    var url = Uri.http(Config.apiUrl, Config.getUserUrl);
+    var url = Uri.https(Config.apiUrl, Config.getUserUrl);
 
     // Make a POST request to the profile URL with the provided headers
     var response = await client.post(

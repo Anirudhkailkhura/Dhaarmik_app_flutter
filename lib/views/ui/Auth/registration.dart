@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:online_product_app/models/auth/signup_model.dart';
 import 'package:online_product_app/views/ui/Auth/login.dart';
 import 'package:provider/provider.dart';
 import '../../../controllers/login_provider.dart';
@@ -16,8 +18,21 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
   TextEditingController email = TextEditingController();
-  TextEditingController passward = TextEditingController();
+  TextEditingController password = TextEditingController();
   TextEditingController username = TextEditingController();
+
+  bool validation = false;
+
+  void formValidation() {
+    if (email.text.isNotEmpty &&
+        password.text.isNotEmpty &&
+        username.text.isNotEmpty) {
+      validation = true;
+    } else {
+      validation = false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var authNotifier = Provider.of<LoginNotifier>(context);
@@ -74,7 +89,7 @@ class _RegistrationState extends State<Registration> {
             CustomTextField(
               obscureText: authNotifier.isObsecure,
               hintText: 'Password',
-              controller: passward,
+              controller: password,
               suffixIcon: GestureDetector(
                 onTap: () {
                   authNotifier.isObsecure = !authNotifier.isObsecure;
@@ -112,7 +127,28 @@ class _RegistrationState extends State<Registration> {
               height: 40.h,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                formValidation();
+                if (validation) {
+                  SignupModel model = SignupModel(
+                      username: username.text,
+                      email: email.text,
+                      password: password.text);
+                  authNotifier.registerUser(model).then((response) {
+                    if (response == true) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()));
+                    } else {
+                      debugPrint(response.toString());
+                      debugPrint("failed to sign in ");
+                    }
+                  });
+                } else {
+                  debugPrint("form not validate");
+                }
+              },
               child: Container(
                 height: 55.h,
                 width: 300,
