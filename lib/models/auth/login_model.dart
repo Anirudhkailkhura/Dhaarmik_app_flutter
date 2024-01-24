@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+// Convert a JSON string to a LoginModel object
 LoginModel loginModelFromJson(String str) => LoginModel.fromJson(json.decode(str));
 
+// Convert a LoginModel object to a JSON string
 String loginModelToJson(LoginModel data) => json.encode(data.toJson());
 
 class LoginModel {

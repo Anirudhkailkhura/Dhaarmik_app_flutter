@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:http/http.dart' as http;
 import 'package:online_product_app/models/auth/login_model.dart';
 import 'package:online_product_app/models/auth/signup_model.dart';
@@ -12,15 +11,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthHelper {
   static var client = http.Client(); // HTTP client for making requests
 
+  // Asynchronous function for user login, takes a LoginModel as input
   Future<bool> login(LoginModel model) async {
     // Setting up request headers
-     Map<String, String> requestHeaders = {"content-Type": "application/json"};
+    Map<String, String> requestHeaders = {"content-Type": "application/json"};
 
     // Constructing the URL using Config class
     var url = Uri.https(Config.apiUrl, Config.loginUrl);
 
     // Making a POST request to the login URL with the provided model data
-   var response = await client.post(url,
+    var response = await client.post(url,
         headers: requestHeaders, body: jsonEncode(model.toJson()));
 
     // Checking if the response status code is 200 (OK)
@@ -30,12 +30,15 @@ class AuthHelper {
       // Saving the token and id to SharedPreferences for future use
       final SharedPreferences prefs = await SharedPreferences.getInstance();
 
+      // Extracting token and id from the response body using the generated model
       String userToken = loginResponseModelFromJson(response.body).token;
       String userId = loginResponseModelFromJson(response.body).id;
 
+      // Saving token, id, and login status to SharedPreferences
       await prefs.setString("token", userToken);
       await prefs.setString("userId", userId);
       await prefs.setBool("isLogged", true);
+
       // Returning true to indicate successful login
       return true;
     } else {
@@ -44,6 +47,7 @@ class AuthHelper {
     }
   }
 
+  // Asynchronous function for user signup, takes a SignupModel as input
   Future<bool> signup(SignupModel model) async {
     // Set up request headers
     Map<String, String> requestHeaders = {"content-Type": "application/json"};
@@ -59,6 +63,7 @@ class AuthHelper {
       body: jsonEncode(model),
     );
 
+    // Log the response body for debugging purposes
     log(response.body, name: "AuthSignUp");
 
     // Check if the response status code is 201 (Created)
@@ -71,6 +76,7 @@ class AuthHelper {
     }
   }
 
+  // Asynchronous function for retrieving user profile information
   Future<ProfileRes> getProfile() async {
     // Retrieve the user token from SharedPreferences
     final SharedPreferences prefs = await SharedPreferences.getInstance();
